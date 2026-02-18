@@ -110,18 +110,18 @@ This is the heart of Qesh. Using **conflict-free scheduling algorithms**, the sy
 │           Qesh Platform                 │
 ├─────────────────────────────────────────┤
 │                                         │
-│  👤 CLIENT                              │
+│  CLIENT                              │
 │  ├─ Browse Services                     │
 │  ├─ Book Appointments                   │
 │  └─ View Booking History                │
 │                                         │
-│  💼 STAFF                                │
+│  STAFF                                │
 │  ├─ View Assigned Schedule              │
 │  ├─ Mark Services Complete              │
 │  ├─ Update Availability                 │
 │  └─ Access Notices Board                │
 │                                         │
-│  👑 ADMIN                                │
+│  ADMIN                                │
 │  ├─ Manage All Bookings                 │
 │  ├─ Configure Services & Pricing        │
 │  ├─ Control Staff & Schedules           │
@@ -295,6 +295,6 @@ Contributions are welcome! Please read CONTRIBUTING.md for guidelines.
 
 ## **Support**
 
-- 📧 Email: support@qesh.app
-- 📚 Documentation: https://docs.qesh.app
-- 🐛 Issues: https://github.com/yourusername/qesh/issues
+- Email: support@qesh.app
+- Documentation: https://docs.qesh.app
+- Issues: https://github.com/yourusername/qesh/issues

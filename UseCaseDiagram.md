@@ -4,9 +4,9 @@
 
 This diagram maps all major use cases for the Qesh platform, organized by the three primary actors:
 
-- **👤 Clients:** End customers who book salon services
-- **💼 Staff:** Service providers (stylists, therapists, technicians)
-- **👑 Admins:** Salon owners and managers
+- ** Clients:** End customers who book salon services
+- ** Staff:** Service providers (stylists, therapists, technicians)
+- ** Admins:** Salon owners and managers
 
 The system focuses on three core pillars:
 1. **Seamless Booking Experience** for clients
@@ -229,7 +229,7 @@ Scenario: Admin views monthly revenue report
 | Use Case | Client | Staff | Admin |
 | --- | :---: | :---: | :---: |
 | Browse Service Catalog | ✅ | ✅ | ✅ |
-| Check Availability | ✅ | ✅ | ✅ |
+| Check Availability |  |  |  |
 | Book Appointment | ✅ | ✅ | ✅ |
 | View Own Bookings | ✅ | - | ✅ |
 | Cancel Own Booking | ✅ | - | ✅ |

@@ -321,13 +321,13 @@ if (dbCircuitBreaker.isOpen()) {
 
 ## **Security Considerations**
 
-✅ **Authentication:** JWT tokens with expiration  
-✅ **Authorization:** Role-based middleware checks  
-✅ **Input Validation:** Sanitize all user inputs  
-✅ **Rate Limiting:** Prevent booking spam attacks  
-✅ **SQL Injection Protection:** Parameterized queries via Prisma  
-✅ **XSS Protection:** HTTP-only cookies, CSP headers  
-✅ **Audit Logging:** Every booking action recorded  
+**Authentication:** JWT tokens with expiration  
+**Authorization:** Role-based middleware checks  
+**Input Validation:** Sanitize all user inputs  
+**Rate Limiting:** Prevent booking spam attacks  
+**SQL Injection Protection:** Parameterized queries via Prisma  
+**XSS Protection:** HTTP-only cookies, CSP headers  
+**Audit Logging:** Every booking action recorded  
 
 ---
 
