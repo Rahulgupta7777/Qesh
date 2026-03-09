@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&family=Poppins:wght@300;400;500;600&display=swap');
+@import url('https://fonts.cdnfonts.com/css/louis-george-cafe');
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FDF6EC;
+  --color-brown-900: #3E2723;
+  --color-brown-700: #5D4037;
+  --color-brown-600: #8D6E63;
+  --color-brown-100: #FDF6EC;
+  --color-beige-200: #E0D3C9;
+  --color-beige-300: #D7CCC8;
+  --color-beige-400: #C39E83;
+
+  --font-serif: 'El Messiri', serif;
+  --font-sans: 'Poppins', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-brown-900 font-sans antialiased min-h-screen content-center;
+  }
+
+  button {
+    @apply cursor-pointer border-none;
+    font-family: inherit;
+  }
+}
