@@ -1,0 +1,98 @@
+@import url('https://fonts.cdnfonts.com/css/louis-george-cafe');
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&display=swap');
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+@theme {
+  /* Neumorphic palette — background and surfaces share one base color.
+     Depth comes from paired shadows (dark + light), never from hue. */
+  --color-cream: #e0e5ec;          /* neu base (bg + surface) */
+  --color-neu-base: #e0e5ec;
+  --color-neu-shadow-dark: #a3b1c6;
+  --color-neu-shadow-light: #ffffff;
+
+  /* Text-first palette — kept under brown-* names for legacy classes */
+  --color-brown-900: #2d3142;      /* primary text */
+  --color-brown-700: #4f5565;
+  --color-brown-600: #6b7280;
+  --color-brown-500: #8a8fa3;
+  --color-brown-400: #9aa0b4;
+  --color-brown-300: #b8bec7;
+  --color-brown-200: #c7cedb;
+  --color-brown-100: #eff2f7;
+  --color-brown-50: #eef1f6;
+
+  --color-beige-200: #d1d9e6;
+  --color-beige-300: #a3b1c6;
+  --color-beige-400: #b8bec7;
+
+  --font-serif: 'El Messiri', serif;
+  --font-sans: 'Poppins', sans-serif;
+}
+
+@layer base {
+  html {
+    @apply overflow-x-hidden overflow-y-scroll w-full scroll-smooth snap-y snap-mandatory;
+    background: #e0e5ec;
+  }
+
+  body {
+    @apply bg-cream text-brown-900 font-sans antialiased min-h-screen w-full overflow-x-hidden;
+    background: #e0e5ec;
+  }
+
+  button {
+    @apply cursor-pointer border-none;
+    font-family: inherit;
+    background: transparent;
+  }
+}
+
+/* Neumorphism utilities — Qesh 1.2 Soft UI */
+@layer utilities {
+  .neu-raised {
+    background: #e0e5ec;
+    box-shadow: 8px 8px 18px #a3b1c6, -8px -8px 18px #ffffff;
+  }
+  .neu-raised-sm {
+    background: #e0e5ec;
+    box-shadow: 6px 6px 12px #b8bec7, -6px -6px 12px #ffffff;
+  }
+  .neu-raised-lg {
+    background: #e0e5ec;
+    box-shadow: 14px 14px 28px #a3b1c6, -14px -14px 28px #ffffff;
+  }
+  .neu-pressed {
+    background: #e0e5ec;
+    box-shadow: inset 4px 4px 8px #b8bec7, inset -4px -4px 8px #ffffff;
+  }
+  .neu-inset {
+    background: #e0e5ec;
+    box-shadow: inset 6px 6px 12px #a3b1c6, inset -6px -6px 12px #ffffff;
+  }
+  .neu-flat {
+    background: #e0e5ec;
+    box-shadow: 3px 3px 6px #b8bec7, -3px -3px 6px #ffffff;
+  }
+  .neu-btn {
+    background: #e0e5ec;
+    box-shadow: 6px 6px 12px #b8bec7, -6px -6px 12px #ffffff;
+    transition: box-shadow 200ms ease, transform 200ms ease;
+  }
+  .neu-btn:hover {
+    box-shadow: 4px 4px 8px #b8bec7, -4px -4px 8px #ffffff;
+  }
+  .neu-btn:active {
+    box-shadow: inset 4px 4px 8px #b8bec7, inset -4px -4px 8px #ffffff;
+    transform: translateY(0);
+  }
+  .neu-chip {
+    background: #e0e5ec;
+    box-shadow: 3px 3px 6px #b8bec7, -3px -3px 6px #ffffff;
+  }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { scrollbar-width: none; }
+}
