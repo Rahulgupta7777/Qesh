@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { MapPin, Sparkles } from "lucide-react";
+import { MapPin, Sparkles, User } from "lucide-react";
 import { qeshImg } from "../../utils/pollinations";
+import NeuImage from "../ui/NeuImage";
 
 const heroPortrait = qeshImg(
   "serene woman portrait at a luxury salon, eyes closed, relaxed expression, soft golden-hour lighting, pastel neutral tones",
@@ -51,11 +52,12 @@ const Hero = () => {
       {/* Neumorphic portrait frame with Pollinations-generated portrait */}
       <div className="flex-1 flex justify-center md:justify-end items-end h-[50vh] md:h-full relative mt-8 md:mt-0 w-full md:pr-12">
         <div className="w-[85%] md:w-auto md:aspect-[5/6] h-full md:h-[min(600px,80vh)] neu-raised-lg rounded-t-[150px] md:rounded-t-[250px] relative overflow-hidden">
-          <img
+          <NeuImage
             src={heroPortrait}
             alt="Qesh salon portrait"
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover object-center"
+            fallbackIcon={User}
+            iconSize={64}
+            className="w-full h-full"
           />
         </div>
       </div>

@@ -1,17 +1,19 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Sparkles, Scissors, Hand, Droplets, Eye } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { qeshImg } from '../../utils/pollinations';
+import NeuImage from '../ui/NeuImage';
 
 const ServiceCard = ({ service, className }) => (
     <Link
         to="/services"
         className={`relative flex-[1_1_0%] hover:flex-[2_1_0%] transition-[flex] duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] group overflow-hidden rounded-4xl cursor-pointer min-w-0 neu-raised ${className}`}
     >
-        <img
+        <NeuImage
             src={service.image}
             alt={service.name}
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110 opacity-90 group-hover:opacity-100"
+            fallbackIcon={service.fallbackIcon}
+            iconSize={48}
+            className="absolute inset-0 w-full h-full transition-transform duration-1000 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/20 to-transparent opacity-70 group-hover:opacity-85 transition-opacity duration-500"></div>
 
@@ -41,11 +43,12 @@ const ServiceCard = ({ service, className }) => (
 
 const MobileServiceCard = ({ service }) => (
     <Link to="/services" className="relative group overflow-hidden rounded-4xl cursor-pointer shrink-0 w-[85vw] snap-center h-112.5 neu-raised">
-        <img
+        <NeuImage
             src={service.image}
             alt={service.name}
-            loading="lazy"
-            className="w-full h-full object-cover"
+            fallbackIcon={service.fallbackIcon}
+            iconSize={72}
+            className="absolute inset-0 w-full h-full"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/85 via-transparent to-transparent opacity-75"></div>
 
@@ -72,30 +75,35 @@ const Services = () => {
         facial: {
             id: "01",
             name: "Facial Spa",
+            fallbackIcon: Sparkles,
             image: qeshImg("luxury facial spa treatment, relaxed woman lying down with face mask, soft pastel tones", { width: 1000, height: 700, seed: 21 }),
             desc: "Rejuvenating treatments designed to restore your natural glow.",
         },
         hair: {
             id: "02",
             name: "Hair Styling",
+            fallbackIcon: Scissors,
             image: qeshImg("elegant salon hair styling close up, flowing glossy hair, soft studio lighting", { width: 1000, height: 700, seed: 22 }),
             desc: "Precision cuts & expert coloring tailored to you.",
         },
         nails: {
             id: "03",
             name: "Nail Care",
+            fallbackIcon: Hand,
             image: qeshImg("luxury manicure hands with nude polish, clean minimal salon backdrop", { width: 1000, height: 600, seed: 23 }),
             desc: "Luxurious manicures & pedicures using premium products.",
         },
         wax: {
             id: "04",
             name: "Waxing",
+            fallbackIcon: Droplets,
             image: qeshImg("professional salon waxing treatment, smooth skin, clean bright atmosphere", { width: 1000, height: 600, seed: 24 }),
             desc: "Gentle full-body waxing for smooth, radiant skin.",
         },
         lashes: {
             id: "05",
             name: "Lashes",
+            fallbackIcon: Eye,
             image: qeshImg("long luxurious eyelash extensions close up macro, soft neutral tones", { width: 1000, height: 600, seed: 25 }),
             desc: "Volume lifts & extensions for captivating eyes.",
         },

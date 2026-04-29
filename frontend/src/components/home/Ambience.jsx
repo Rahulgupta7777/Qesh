@@ -1,46 +1,49 @@
 import { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, Leaf, Flower, Flame, Wind, Droplets, Sparkles } from 'lucide-react';
 import { qeshImg } from '../../utils/pollinations';
+import NeuImage from '../ui/NeuImage';
 
-const images = [
-    qeshImg("luxury modern salon interior, styling stations, warm wood tones, golden hour light", { width: 900, height: 900, seed: 31 }),
-    qeshImg("spa treatment room with soft lighting, white drapes, orchid flowers, calm atmosphere", { width: 900, height: 900, seed: 32 }),
-    qeshImg("salon reception desk with marble counter, fresh flowers, elegant minimal decor", { width: 900, height: 900, seed: 33 }),
-    qeshImg("manicure station with pastel tools, soft pink chair, natural daylight", { width: 900, height: 900, seed: 34 }),
-    qeshImg("cozy waiting lounge at a luxury salon, plush seating, candles, serene mood", { width: 900, height: 900, seed: 35 }),
-    qeshImg("hair wash basin area in a luxury salon, gentle lighting, clean modern design", { width: 900, height: 900, seed: 36 }),
+const tiles = [
+    { icon: Leaf, src: qeshImg("luxury modern salon interior, styling stations, warm wood tones, golden hour light", { width: 900, height: 900, seed: 31 }) },
+    { icon: Flower, src: qeshImg("spa treatment room with soft lighting, white drapes, orchid flowers, calm atmosphere", { width: 900, height: 900, seed: 32 }) },
+    { icon: Flame, src: qeshImg("salon reception desk with marble counter, fresh flowers, elegant minimal decor", { width: 900, height: 900, seed: 33 }) },
+    { icon: Wind, src: qeshImg("manicure station with pastel tools, soft pink chair, natural daylight", { width: 900, height: 900, seed: 34 }) },
+    { icon: Droplets, src: qeshImg("cozy waiting lounge at a luxury salon, plush seating, candles, serene mood", { width: 900, height: 900, seed: 35 }) },
+    { icon: Sparkles, src: qeshImg("hair wash basin area in a luxury salon, gentle lighting, clean modern design", { width: 900, height: 900, seed: 36 }) },
 ];
 
-const AmbienceCard = ({ image, onClick }) => (
+const AmbienceCard = ({ tile, onClick }) => (
     <div
-        onClick={() => onClick(image)}
-        className="relative group overflow-hidden rounded-[2rem] cursor-pointer neu-raised hover:-translate-y-1 transition-all duration-500 w-full h-full"
+        onClick={() => onClick(tile.src)}
+        className="relative group rounded-[2rem] cursor-pointer neu-raised hover:-translate-y-1 transition-all duration-500 w-full h-full overflow-hidden"
     >
-        <img
-            src={image}
+        <NeuImage
+            src={tile.src}
             alt="Salon Ambience"
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-1000 group-hover:scale-110 opacity-95 group-hover:opacity-100"
+            fallbackIcon={tile.icon}
+            iconSize={48}
+            className="w-full h-full"
         />
-        <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition-colors duration-500"></div>
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/35 transition-colors duration-500"></div>
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-            <div className="bg-white/15 backdrop-blur-md px-6 py-3 rounded-full border border-white/30 transform scale-90 group-hover:scale-100 transition-transform duration-300">
+            <div className="bg-white/15 backdrop-blur-md px-6 py-3 rounded-full border border-white/30">
                 <span className="text-white font-light tracking-widest text-sm uppercase">View</span>
             </div>
         </div>
     </div>
 );
 
-const MobileAmbienceCard = ({ image, onClick }) => (
+const MobileAmbienceCard = ({ tile, onClick }) => (
     <div
-        onClick={() => onClick(image)}
-        className="relative group overflow-hidden rounded-[2rem] cursor-pointer flex-shrink-0 w-[85vw] snap-center h-[450px] neu-raised"
+        onClick={() => onClick(tile.src)}
+        className="relative rounded-[2rem] cursor-pointer flex-shrink-0 w-[85vw] snap-center h-[450px] neu-raised overflow-hidden"
     >
-        <img
-            src={image}
-            alt="Ambience"
-            loading="lazy"
-            className="w-full h-full object-cover"
+        <NeuImage
+            src={tile.src}
+            alt="Salon Ambience"
+            fallbackIcon={tile.icon}
+            iconSize={64}
+            className="w-full h-full"
         />
     </div>
 );
@@ -62,25 +65,25 @@ const Ambience = () => {
                 </div>
 
                 <div className="hidden md:grid grid-cols-3 grid-rows-2 gap-4 h-[532px]">
-                    {images.map((img, index) => (
-                        <AmbienceCard key={index} image={img} onClick={setSelectedImage} />
+                    {tiles.map((t, i) => (
+                        <AmbienceCard key={i} tile={t} onClick={setSelectedImage} />
                     ))}
                 </div>
 
                 <div className="md:hidden flex gap-4 overflow-x-auto pb-8 -mx-4 px-4 scrollbar-hide snap-x snap-mandatory">
-                    {images.map((img, index) => (
-                        <MobileAmbienceCard key={index} image={img} onClick={setSelectedImage} />
+                    {tiles.map((t, i) => (
+                        <MobileAmbienceCard key={i} tile={t} onClick={setSelectedImage} />
                     ))}
                 </div>
             </div>
 
             {selectedImage && (
                 <div
-                    className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-10 animate-in fade-in duration-300"
+                    className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-10"
                     onClick={() => setSelectedImage(null)}
                 >
                     <button
-                        className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors"
+                        className="absolute top-6 right-6 text-white/50 hover:text-white"
                         onClick={() => setSelectedImage(null)}
                     >
                         <X size={40} strokeWidth={1} />

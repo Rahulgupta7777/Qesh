@@ -2,10 +2,11 @@ import { useState, useEffect } from "react";
 import api from "../../utils/api.js";
 import Navbar from "../components/layout/Navbar.jsx";
 import BookingModal from "../components/booking/BookingModal.jsx";
-import { ShoppingBag, ArrowRight, Search } from "lucide-react";
+import { ShoppingBag, ArrowRight, Search, Package } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useBooking } from "../context/BookingContext.jsx";
 import { qeshImg } from "../utils/pollinations.js";
+import NeuImage from "../components/ui/NeuImage.jsx";
 
 const shopHeroBg = qeshImg(
   "luxury hair care product shelf at a salon, glass bottles, soft warm lighting, editorial still life",
@@ -205,14 +206,15 @@ const Shop = () => {
                 className="group neu-raised rounded-[2rem] p-6 transition-all duration-500 hover:-translate-y-2 flex flex-col h-full"
               >
                 <div className="h-80 neu-inset rounded-[1.5rem] mb-6 overflow-hidden relative">
-                  <img
+                  <NeuImage
                     src={qeshImg(
                       `${product.brand || ""} ${product.name} hair care product bottle on clean white background, studio product photography`.trim(),
                       { width: 700, height: 700, seed: (parseInt(product._id, 10) || 1) * 13 },
                     )}
                     alt={product.name}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover object-center transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                    fallbackIcon={Package}
+                    iconSize={48}
+                    className="w-full h-full transition-transform duration-700 ease-out group-hover:scale-110"
                   />
                   {/* Quick Add Button or Badge */}
                   <div className="absolute bottom-4 right-4 translate-y-full opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 delay-100 z-20">
